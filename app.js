@@ -6,7 +6,7 @@ const path = require('path');
 
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT;
 
 app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname,"/public/")));
@@ -15,6 +15,6 @@ app.get("/", (req, res) => {
     res.send('hello zackie hybrid');
 });
 
-app.listen(port, () => {
-    debug("listen on port  " + chalk.red(` : ${port}`));
-});
+app.listen(PORT, () => {
+    debug("listen on port" + chalk.red(" : " +PORT));
+})
